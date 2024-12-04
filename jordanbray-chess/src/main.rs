@@ -2,7 +2,9 @@ use std::env;
 use std::time::Instant;
 
 use chess::{Board, BoardStatus, MoveGen};
+use rand::rngs::SmallRng;
 use rand::seq::IteratorRandom;
+use rand::SeedableRng;
 
 #[derive(PartialEq)]
 enum GameResult {
@@ -10,14 +12,13 @@ enum GameResult {
     Draw,
 }
 
-fn simul() -> (GameResult, i32) {
+fn simul(rng: &mut SmallRng) -> (GameResult, i32) {
     let mut board = Board::default();
 
     let mut move_count = 0;
     while board.status() == BoardStatus::Ongoing {
         let legal_moves = MoveGen::new_legal(&board);
-        let mut rng = rand::thread_rng();
-        let m = legal_moves.choose(&mut rng).unwrap();
+        let m = legal_moves.choose(rng).unwrap();
         board = board.make_move_new(m);
 
         move_count += 1;
@@ -48,8 +49,9 @@ fn main() {
     let mut total_moves = 0;
     let mut wins = 0;
 
+    let mut rng = rand::rngs::SmallRng::from_entropy();
     for _ in 0..num_simulations {
-        let (result, moves) = simul();
+        let (result, moves) = simul(&mut rng);
         if result == GameResult::WinLoss {
             wins += 1;
         }

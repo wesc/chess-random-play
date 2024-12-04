@@ -5,7 +5,7 @@
 
 #include "chess.hpp"
 
-std::pair<chess::GameResult, int> random_simul()
+std::pair<chess::GameResult, int> random_simul(std::mt19937 &gen)
 {
     auto board = std::make_shared<chess::Board>();
 
@@ -20,8 +20,6 @@ std::pair<chess::GameResult, int> random_simul()
 
         chess::Movelist movelist;
         chess::movegen::legalmoves(movelist, *board);
-        std::random_device rd;
-        std::mt19937 gen(rd());
         std::uniform_int_distribution<> dis(0, movelist.size() - 1);
         auto move = movelist[dis(gen)];
         board->makeMove(move);
@@ -47,10 +45,12 @@ int main(int argc, char const *argv[])
     int num_simulations = std::stoi(argv[1]);
     int win_loss = 0, draws = 0, total_moves = 0;
 
+    std::random_device rd;
+    std::mt19937 gen(rd());
     auto start_time = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < num_simulations; ++i)
     {
-        auto result = random_simul();
+        auto result = random_simul(gen);
         switch (result.first)
         {
         case chess::GameResult::WIN:

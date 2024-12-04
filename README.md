@@ -12,7 +12,7 @@ Each of the below libraries has its own folder in this repo.
 - [Disservin's chess-library](https://github.com/Disservin/chess-library) (C++)
 - [Jordan Bray's chess](https://github.com/jordanbray/chess) (Rust)
 
-Run `make clean run` to build and run 10,000 random play simulations, and also output the stripped and compressed executable sizes if applicable.
+Run `make clean run` to build and run 100,000 random play simulations, and also output the stripped and compressed executable sizes if applicable.
 
 
 ## Benchmarks
@@ -20,37 +20,37 @@ Run `make clean run` to build and run 10,000 random play simulations, and also o
 chess-library:
 
 ```
--rwxrwxr-x 1 wesc wesc 72056 Dec  3 15:03 simul
--rw-rw-r-- 1 wesc wesc 33706 Dec  3 15:03 simul.gz
-./simul 10000
+-rwxrwxr-x 1 wesc wesc 72056 Dec  3 19:49 simul
+-rw-rw-r-- 1 wesc wesc 33782 Dec  3 19:52 simul.gz
+./simul 100000
 chess-library
 -------------
-Win/Loss: 1065
-Draws: 8935
-Average win/loss rate: 0.1065
-Average draw rate: 0.8935
-Average number of moves: 191.787
-Average time per simulation: 0.000718485 seconds
-Simulations per second: 1391.82
-Total time elapsed: 7.18485 seconds
+Win/Loss: 10959
+Draws: 89041
+Average win/loss rate: 0.10959
+Average draw rate: 0.89041
+Average number of moves: 191.763
+Average time per simulation: 5.37462e-05 seconds
+Simulations per second: 18606
+Total time elapsed: 5.37462 seconds
 ```
 
 Chess crate:
 
 ```
--rwxrwxr-x 1 wesc wesc 1003312 Dec  3 15:05 simul
--rw-rw-r-- 1 wesc wesc  113032 Dec  3 15:05 simul.gz
-./simul 10000
+-rwxrwxr-x 1 wesc wesc 992248 Dec  3 20:17 simul
+-rw-rw-r-- 1 wesc wesc 107288 Dec  3 20:17 simul.gz
+./simul 100000
 jordanbray-chess
 ----------------
-Win/Loss: 1113
-Draws: 8887
-Average win/loss rate: 11.13%
-Average draw rate: 88.87%
-Average number of moves: 191.63
-Average time per simulation: 0.000057 seconds
-Simulations per second: 17593.88
-Total time elapsed: 0.57 seconds
+Win/Loss: 11051
+Draws: 88949
+Average win/loss rate: 11.05%
+Average draw rate: 88.95%
+Average number of moves: 191.80
+Average time per simulation: 0.000058 seconds
+Simulations per second: 17314.62
+Total time elapsed: 5.78 seconds
 ```
 
 

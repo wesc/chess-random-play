@@ -16,4 +16,4 @@ clean:
 run: simul
 	gzip -c simul > simul.gz
 	ls -l simul simul.gz
-	./simul 10000
+	./simul 100000
