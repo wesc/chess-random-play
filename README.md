@@ -17,7 +17,7 @@ Run `make clean run` to build and run 100,000 random play simulations (1,000 in 
 
 ## Benchmarks
 
-chess-library:
+C++ chess-library:
 
 ```
 -rwxrwxr-x 1 wesc wesc 72056 Dec  3 19:49 simul
@@ -35,7 +35,7 @@ Simulations per second: 18606
 Total time elapsed: 5.37462 seconds
 ```
 
-Chess crate:
+Rust chess crate:
 
 ```
 -rwxrwxr-x 1 wesc wesc 992248 Dec  3 20:17 simul
@@ -51,6 +51,21 @@ Average number of moves: 191.80
 Average time per simulation: 0.000058 seconds
 Simulations per second: 17314.62
 Total time elapsed: 5.78 seconds
+```
+
+Rust cozy_chess crate:
+
+```
+analog-hors-cozy-chess
+----------------------
+Win/Loss: 10913
+Draws: 89087
+Average win/loss rate: 10.91%
+Average draw rate: 89.09%
+Average number of moves: 191.95
+Average time per simulation: 0.000076 seconds
+Simulations per second: 13083.95
+Total time elapsed: 7.64 seconds
 ```
 
 Python chess (note this run is for 1k simulations, not 100k like the C++ and Rust libraries):
