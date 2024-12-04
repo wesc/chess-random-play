@@ -11,6 +11,8 @@ Each of the below libraries has its own folder in this repo.
 
 - [Disservin's chess-library](https://github.com/Disservin/chess-library) (C++)
 - [Jordan Bray's chess](https://github.com/jordanbray/chess) (Rust)
+- [analog-hors's cozy_chess](https://github.com/analog-hors/cozy-chess) (Rust)
+- [niklasf's python-chess](https://github.com/niklasf/python-chess) (Python)
 
 Run `make clean run` to build and run 100,000 random play simulations (1,000 in the case of Python), and also output the stripped and compressed executable sizes if applicable.
 
