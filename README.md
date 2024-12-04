@@ -12,7 +12,7 @@ Each of the below libraries has its own folder in this repo.
 - [Disservin's chess-library](https://github.com/Disservin/chess-library) (C++)
 - [Jordan Bray's chess](https://github.com/jordanbray/chess) (Rust)
 
-Run `make clean run` to build and run 100,000 random play simulations, and also output the stripped and compressed executable sizes if applicable.
+Run `make clean run` to build and run 100,000 random play simulations (1,000 in the case of Python), and also output the stripped and compressed executable sizes if applicable.
 
 
 ## Benchmarks
@@ -53,6 +53,22 @@ Simulations per second: 17314.62
 Total time elapsed: 5.78 seconds
 ```
 
+Python chess (note this run is for 1k simulations, not 100k like the C++ and Rust libraries):
+
+```
+-rw-rw-r-- 1 wesc wesc 1789 Dec  3 20:41 simul.py
+.venv/bin/python simul.py 1000
+niklasf-python-chess
+--------------------
+Win/Loss: 109
+Draws: 891
+Win/Loss Rate: 0.109
+Draw Rate: 0.891
+Average number of moves: 191.208
+Average time per simulation: 0.010 seconds
+Simulations per second: 97.243
+Total time elapsed: 10.284 seconds
+```
 
 ## License
 
