@@ -19,61 +19,59 @@ Run `make clean run` to build and run 100,000 random play simulations (1,000 in 
 
 ## Benchmarks
 
+Benchmarks are run w/ 1,000,000 simluations (except for Python) to get stable measurements.
+
 C++ chess-library:
 
 ```
--rwxrwxr-x 1 wesc wesc 72056 Dec  3 19:49 simul
--rw-rw-r-- 1 wesc wesc 33782 Dec  3 19:52 simul.gz
-./simul 100000
+./simul 1000000
 chess-library
 -------------
-Win/Loss: 10959
-Draws: 89041
-Average win/loss rate: 0.10959
-Average draw rate: 0.89041
-Average number of moves: 191.763
-Average time per simulation: 5.37462e-05 seconds
-Simulations per second: 18606
-Total time elapsed: 5.37462 seconds
+Win/Loss: 108923
+Draws: 891077
+Average win/loss rate: 0.108923
+Average draw rate: 0.891077
+Average number of moves: 191.836
+Average time per simulation: 5.26536e-05 seconds
+Simulations per second: 18992
+Total time elapsed: 52.6536 seconds
 ```
 
 Rust chess crate:
 
 ```
--rwxrwxr-x 1 wesc wesc 992248 Dec  3 20:17 simul
--rw-rw-r-- 1 wesc wesc 107288 Dec  3 20:17 simul.gz
-./simul 100000
+./simul 1000000
 jordanbray-chess
 ----------------
-Win/Loss: 11051
-Draws: 88949
-Average win/loss rate: 11.05%
-Average draw rate: 88.95%
-Average number of moves: 191.80
-Average time per simulation: 0.000058 seconds
-Simulations per second: 17314.62
-Total time elapsed: 5.78 seconds
+Win/Loss: 109622
+Draws: 890378
+Average win/loss rate: 10.96%
+Average draw rate: 89.04%
+Average number of moves: 191.87
+Average time per simulation: 0.000060 seconds
+Simulations per second: 16584.06
+Total time elapsed: 60.30 seconds
 ```
 
 Rust cozy_chess crate:
 
 ```
+./simul 1000000
 analog-hors-cozy-chess
 ----------------------
-Win/Loss: 10913
-Draws: 89087
-Average win/loss rate: 10.91%
-Average draw rate: 89.09%
-Average number of moves: 191.95
-Average time per simulation: 0.000076 seconds
-Simulations per second: 13083.95
-Total time elapsed: 7.64 seconds
+Win/Loss: 109356
+Draws: 890644
+Average win/loss rate: 10.94%
+Average draw rate: 89.06%
+Average number of moves: 191.91
+Average time per simulation: 0.000051 seconds
+Simulations per second: 19451.68
+Total time elapsed: 51.41 seconds
 ```
 
-Python chess (note this run is for 1k simulations, not 100k like the C++ and Rust libraries):
+Python chess:
 
 ```
--rw-rw-r-- 1 wesc wesc 1789 Dec  3 20:41 simul.py
 .venv/bin/python simul.py 1000
 niklasf-python-chess
 --------------------
