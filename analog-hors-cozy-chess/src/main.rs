@@ -14,9 +14,10 @@ enum GameResult {
 fn simul(rng: &mut SmallRng) -> (GameResult, i32) {
     let mut board = cozy_chess::Board::default();
     let mut move_count = 0;
+    let mut move_list = Vec::new();
 
     while board.status() == cozy_chess::GameStatus::Ongoing {
-        let mut move_list = Vec::new();
+        move_list.clear();
         board.generate_moves(|moves| {
             move_list.extend(moves);
             false
